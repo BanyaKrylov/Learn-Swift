@@ -9,7 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
+   
+    @IBOutlet weak var firstImageView: UIImageView!
 
+    @IBAction func changeImage(_ sender: Any) {
+        if firstImageView.image == #imageLiteral(resourceName: "eric1") {
+            firstImageView.image = #imageLiteral(resourceName: "Eric_cartman")
+        } else {
+            firstImageView.image = #imageLiteral(resourceName: "eric1")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

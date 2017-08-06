@@ -22,24 +22,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Приложение с одной надписью" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36l-8Q-tsv">
-                                <rect key="frame" x="33" y="28" width="254" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36l-8Q-tsv">
+                                <rect key="frame" x="24" y="28" width="272" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Eric_cartman" translatesAutoresizingMaskIntoConstraints="NO" id="kgP-NX-Gj2">
+                                <rect key="frame" x="24" y="56.5" width="272" height="229"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrM-jm-muy">
+                                <rect key="frame" x="24" y="530" width="272" height="30"/>
+                                <state key="normal" title="Change image"/>
+                                <connections>
+                                    <action selector="changeImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nc5-5z-9lr"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8NW-0b-umG">
+                                <rect key="frame" x="24" y="293.5" width="272" height="228.5"/>
+                                <color key="backgroundColor" red="0.76445069099999996" green="1" blue="0.85865151120000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <mutableString key="text">Eric Theodore Cartman, usually referred to as just Cartman, is one of the main characters, along with Stan Marsh, Kyle Broflovski, and Kenny McCormick. Cartman is sometimes the main antagonist of an episode, for his hat, as seen in "Merry Christmas Charlie Manson!". He also weighs 90 pounds, as revealed in "Weight Gain 4000". Eric Theodore Cartman, usually referred to as just Cartman, is one of the main characters, along with Stan Marsh, Kyle Broflovski, and Kenny McCormick. Cartman is sometimes the main antagonist of an episode, for his hat, as seen in "Merry Christmas Charlie Manson!". He also weighs 90 pounds, as revealed in "Weight Gain 4000". Eric Theodore Cartman, usually referred to as just Cartman, is one of the main characters, along with Stan Marsh, Kyle Broflovski, and Kenny McCormick. Cartman is sometimes the main antagonist of an episode, for his hat, as seen in "Merry Christmas Charlie Manson!". He also weighs 90 pounds, as revealed in "Weight Gain 4000".</mutableString>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.76445069097283191" green="1" blue="0.8586515112283809" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.76445069099999996" green="1" blue="0.85865151120000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="36l-8Q-tsv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="17" id="6aq-PS-M3c"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="36l-8Q-tsv" secondAttribute="trailing" constant="17" id="Fga-pQ-aeV"/>
-                            <constraint firstItem="36l-8Q-tsv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="hQV-k7-tb0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="36l-8Q-tsv" secondAttribute="trailing" constant="8" id="8OG-as-meg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8NW-0b-umG" secondAttribute="trailing" constant="8" id="Fw0-Ai-8TM"/>
+                            <constraint firstItem="36l-8Q-tsv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="GCC-XX-Bxw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kgP-NX-Gj2" secondAttribute="trailing" constant="8" id="KYB-Zh-IL5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YrM-jm-muy" secondAttribute="trailing" constant="8" id="LlR-Bi-fwe"/>
+                            <constraint firstItem="kgP-NX-Gj2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="WcJ-rh-NO3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YrM-jm-muy" secondAttribute="bottom" constant="8" id="Xtl-jV-XuT"/>
+                            <constraint firstItem="YrM-jm-muy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="cfU-y1-BDC"/>
+                            <constraint firstItem="8NW-0b-umG" firstAttribute="height" secondItem="kgP-NX-Gj2" secondAttribute="height" id="iRT-YO-UWM"/>
+                            <constraint firstItem="36l-8Q-tsv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="lQJ-gR-Vgq"/>
+                            <constraint firstItem="YrM-jm-muy" firstAttribute="top" secondItem="8NW-0b-umG" secondAttribute="bottom" constant="8" id="nmB-Wr-0tr"/>
+                            <constraint firstItem="8NW-0b-umG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="pMJ-BR-adZ"/>
+                            <constraint firstItem="kgP-NX-Gj2" firstAttribute="top" secondItem="36l-8Q-tsv" secondAttribute="bottom" constant="8" id="qUd-3d-Lag"/>
+                            <constraint firstItem="8NW-0b-umG" firstAttribute="top" secondItem="kgP-NX-Gj2" secondAttribute="bottom" constant="8" id="tfD-ZA-QRP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="firstImageView" destination="kgP-NX-Gj2" id="ww4-4n-jGS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.875" y="138.38028169014083"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Eric_cartman" width="1500" height="1378"/>
+    </resources>
 </document>
