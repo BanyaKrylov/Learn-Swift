@@ -33,11 +33,12 @@
                                 <rect key="frame" x="173" y="336" width="123" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.092600753659724422" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Зеленый">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="greenButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Spi-Xs-hnS"/>
+                                    <action selector="allButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GIg-MA-Rh8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjQ-IM-k3g">
@@ -47,8 +48,7 @@
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="redButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cts-9y-OnE"/>
-                                    <action selector="redText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TwF-zu-jhu"/>
+                                    <action selector="allButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="trN-fH-6q5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzG-Yu-lCs">
@@ -58,8 +58,7 @@
                                     <color key="titleColor" red="0.092600753659999993" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="greenButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gH3-Pm-xdh"/>
-                                    <action selector="greenText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YXI-LG-W77"/>
+                                    <action selector="allButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hxn-o4-0by"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Amx-OV-oNq">
@@ -69,18 +68,18 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="defaultSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tZJ-Ue-dUP"/>
+                                    <action selector="allButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i58-Ya-GzM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wly-n0-QHt">
                                 <rect key="frame" x="31" y="397" width="123" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Синий">
                                     <color key="titleColor" red="0.0" green="0.11647947309999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="blueButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="96e-am-6vA"/>
-                                    <action selector="blueText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ugm-WB-8ZW"/>
+                                    <action selector="allButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PNy-hx-bB4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8q-Jv-ixK">
@@ -91,7 +90,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="redButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yjo-Oh-FaX"/>
+                                    <action selector="allButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L7I-qx-V3j"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d06-ye-bFR">
@@ -102,7 +101,7 @@
                                     <color key="titleColor" red="0.97897852969874755" green="1" blue="0.99218853324331291" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="blueButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BrK-yh-uZb"/>
+                                    <action selector="allButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a3W-zs-YlO"/>
                                 </connections>
                             </button>
                         </subviews>

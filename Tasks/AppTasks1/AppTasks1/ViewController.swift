@@ -15,47 +15,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var labelWithText: UILabel!
     
-    @IBAction func redButton(_ sender: Any) {
-        labelWithText.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
-        labelWithText.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        labelWithText.text = "Label с текстом"
+    @IBAction func allButtons(_ sender: UIButton) {
+        labelWithText.backgroundColor = sender.backgroundColor
+        labelWithText.text = sender.titleLabel?.text
+        labelWithText.textColor = sender.titleLabel?.textColor
     }
     
-    @IBAction func greenButton(_ sender: Any) {
-        labelWithText.backgroundColor = #colorLiteral(red: 0.09260075366, green: 1, blue: 0, alpha: 1)
-        labelWithText.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        labelWithText.text = "Label с текстом"
-    }
-    
-    @IBAction func blueButton(_ sender: Any) {
-        labelWithText.backgroundColor = #colorLiteral(red: 0, green: 0.1164794731, blue: 1, alpha: 1)
-        labelWithText.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        labelWithText.text = "Label с текстом"
-    }
-    
-    @IBAction func redText(_ sender: Any) {
-        labelWithText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        labelWithText.textColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
-        labelWithText.text = "Red label"
-    }
-    
-    @IBAction func greenText(_ sender: Any) {
-        labelWithText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        labelWithText.textColor = #colorLiteral(red: 0.09260075366, green: 1, blue: 0, alpha: 1)
-        labelWithText.text = "Green label"
-    }
-    
-    @IBAction func blueText(_ sender: Any) {
-        labelWithText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        labelWithText.textColor = #colorLiteral(red: 0, green: 0.1164794731, blue: 1, alpha: 1)
-        labelWithText.text = "Blue label"
-    }
-    
-    @IBAction func defaultSettings(_ sender: Any) {
-        labelWithText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        labelWithText.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        labelWithText.text = "Label с текстом"
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
