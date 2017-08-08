@@ -419,7 +419,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HQT858PF5U;
 				INFOPLIST_FILE = AppTasks1/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sandbox.tasks1.Krylov.AppTasks1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -433,7 +433,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HQT858PF5U;
 				INFOPLIST_FILE = AppTasks1/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sandbox.tasks1.Krylov.AppTasks1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -518,6 +518,7 @@
 				3709E6CF1F384D57006E7862 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3709E6D01F384D57006E7862 /* Build configuration list for PBXNativeTarget "AppTasks1Tests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +527,7 @@
 				3709E6D21F384D57006E7862 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3709E6D31F384D57006E7862 /* Build configuration list for PBXNativeTarget "AppTasks1UITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +536,7 @@
 				3709E6D51F384D57006E7862 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
