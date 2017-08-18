@@ -53,6 +53,22 @@ class ViewController: UIViewController {
         }
     }
     
+    //Поворачиваем перелкючатели вертикально
+    func turnSwitchersVertically() {
+        for switcher in [switch1, switch2, switch4, switch8, switch16] {
+            if let transform = switcher?.transform.rotated(by: -CGFloat.pi / 2) {
+                switcher?.transform = transform
+            }
+        }
+    }
+    
+    func makeButtonsRound() {
+        for button in [startGame, stopGame] {
+            button?.layer.cornerRadius = (button?.frame.height ?? 0) / 2
+        }
+    }
+
+    
     @IBAction func startGame(_ sender: UIButton) {
         generateRandomNum()
         getTasks()

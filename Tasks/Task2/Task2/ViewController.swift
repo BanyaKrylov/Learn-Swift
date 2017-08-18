@@ -10,14 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let imageArray = [#imageLiteral(resourceName: "7"), #imageLiteral(resourceName: "3"), #imageLiteral(resourceName: "8"), #imageLiteral(resourceName: "4"), #imageLiteral(resourceName: "9"), #imageLiteral(resourceName: "5"),#imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "6"), #imageLiteral(resourceName: "2")]
-    func randomImage() -> Int{
-        let unsignedArrayCount = UInt32(imageArray.count)
-        let unsignedRandomNumber = arc4random_uniform(unsignedArrayCount)
-        return Int(unsignedRandomNumber)
-    }
+    var randomImage = RandomImage()
     @IBAction func clickButton(_ sender: UIButton) {
-        sender.setBackgroundImage(imageArray[randomImage()], for: .normal)
+        sender.setBackgroundImage(randomImage.randomImage(), for: .normal)
     }
     
     override func viewDidLoad() {

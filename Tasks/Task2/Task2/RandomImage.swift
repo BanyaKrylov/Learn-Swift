@@ -8,11 +8,22 @@
 
 import UIKit
 
-class RandomImage {
+class RandomImage: UIButton {
     
-    func randomImage() -> Int{
+    let imageArray = [#imageLiteral(resourceName: "7"), #imageLiteral(resourceName: "3"), #imageLiteral(resourceName: "8"), #imageLiteral(resourceName: "4"), #imageLiteral(resourceName: "9"), #imageLiteral(resourceName: "5"),#imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "6"), #imageLiteral(resourceName: "2")]
+    func randomImage() -> UIImage{
         let unsignedArrayCount = UInt32(imageArray.count)
         let unsignedRandomNumber = arc4random_uniform(unsignedArrayCount)
-        return Int(unsignedRandomNumber)
+        let randomIndex = Int(unsignedRandomNumber)
+        return imageArray[randomIndex]
     }
+
+    /*
+    // Only override draw() if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func draw(_ rect: CGRect) {
+        // Drawing code
+    }
+    */
+
 }
