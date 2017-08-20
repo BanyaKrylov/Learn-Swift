@@ -62,11 +62,11 @@ class ViewController: UIViewController {
         }
     }
     
-    func makeButtonsRound() {
-        for button in [startGame, stopGame] {
-            button?.layer.cornerRadius = (button?.frame.height ?? 0) / 2
-        }
-    }
+//    func makeButtonsRound() {
+//        for button in [startGame, stopGame] {
+//            button?.layer.cornerRadius = (button?.frame.height ?? 0) / 2
+//        }
+//    }
 
     
     @IBAction func startGame(_ sender: UIButton) {
@@ -102,6 +102,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        turnSwitchersVertically()
     }
     
     override func didReceiveMemoryWarning() {
