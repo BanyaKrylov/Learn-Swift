@@ -73,11 +73,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.15264859795570374" green="0.14203000068664551" blue="0.26226651668548584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FP-f9-LGM">
                                 <rect key="frame" x="124" y="417" width="72" height="30"/>
@@ -105,6 +100,8 @@
                         <color key="backgroundColor" red="0.15779572725296021" green="0.0946916863322258" blue="0.20663109421730042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="checkButton" destination="4FP-f9-LGM" id="M8U-OR-aUF"/>
+                        <outlet property="startButton" destination="piC-pL-W01" id="lCn-ZC-AJJ"/>
                         <outlet property="switch1" destination="ESY-hr-JGz" id="sCj-8Z-c7V"/>
                         <outlet property="switch16" destination="LWe-8L-Wv0" id="tJV-Sh-haZ"/>
                         <outlet property="switch2" destination="fAC-EH-3qD" id="uo0-QW-odG"/>

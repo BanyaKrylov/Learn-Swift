@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var switch4: UISwitch!
     @IBOutlet weak var switch8: UISwitch!
     @IBOutlet weak var switch16: UISwitch!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var checkButton: UIButton!
     
     // Рандомайзер
     func generateRandomNum(){
@@ -53,7 +55,7 @@ class ViewController: UIViewController {
         }
     }
     
-    //Поворачиваем перелкючатели вертикально
+    // Повернуть перелкючатели вертикально
     func turnSwitchersVertically() {
         for switcher in [switch1, switch2, switch4, switch8, switch16] {
             if let transform = switcher?.transform.rotated(by: -CGFloat.pi / 2) {
@@ -62,12 +64,12 @@ class ViewController: UIViewController {
         }
     }
     
-//    func makeButtonsRound() {
-//        for button in [startGame, stopGame] {
-//            button?.layer.cornerRadius = (button?.frame.height ?? 0) / 2
-//        }
-//    }
-
+    // Заакруглить элементы
+    func setCornerRadius(){
+        task.layer.cornerRadius = 5
+        startButton.layer.cornerRadius = 5
+        checkButton.layer.cornerRadius = 5
+    }
     
     @IBAction func startGame(_ sender: UIButton) {
         generateRandomNum()
@@ -86,7 +88,6 @@ class ViewController: UIViewController {
     @IBAction func switch1(_ sender: UISwitch) {
         switchDriver(sender: sender, switcher: switch1, num: 1)
     }
-    
     @IBAction func switch2(_ sender: UISwitch) {
         switchDriver(sender: sender, switcher: switch2, num: 2)
     }
@@ -102,6 +103,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        setCornerRadius()
         turnSwitchersVertically()
     }
     
