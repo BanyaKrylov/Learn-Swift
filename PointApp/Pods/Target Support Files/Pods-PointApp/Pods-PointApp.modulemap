@@ -1,0 +1,6 @@
+framework module Pods_PointApp {
+  umbrella header "Pods-PointApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

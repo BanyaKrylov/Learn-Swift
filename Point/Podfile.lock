@@ -1,0 +1,62 @@
+PODS:
+  - Cordova (4.1.1)
+  - cordova-plugin-device (1.1.1):
+    - Cordova (>= 4.0.1)
+  - cordova-plugin-device-motion (1.2.0):
+    - Cordova (>= 4.0.1)
+  - cordova-plugin-device-orientation (1.0.2):
+    - Cordova (>= 4.0.1)
+  - cordova-plugin-file (4.2.0):
+    - Cordova (>= 4.0.1)
+  - cordova-plugin-geolocation (2.1.0):
+    - Cordova (>= 4.0.1)
+  - cordova-plugin-globalization (1.0.2):
+    - Cordova (>= 4.0.1)
+  - cordova-plugin-network-information (1.2.0):
+    - Cordova (>= 4.0.1)
+  - cordova-plugin-wkwebview-engine (1.0.2):
+    - Cordova (>= 4.0.1)
+  - CordovaPlugin-console (0.2.10):
+    - Cordova (>= 3.0.0)
+  - GoogleMaps (2.4.0):
+    - GoogleMaps/Maps (= 2.4.0)
+  - GoogleMaps/Base (2.4.0)
+  - GoogleMaps/Maps (2.4.0):
+    - GoogleMaps/Base
+  - GooglePlaces (2.4.0):
+    - GoogleMaps/Base (= 2.4.0)
+  - MapsAPI (0.0.1):
+    - Cordova (~> 4.1.0)
+    - cordova-plugin-device
+    - cordova-plugin-device-motion
+    - cordova-plugin-device-orientation
+    - cordova-plugin-file (~> 4.2.0)
+    - cordova-plugin-geolocation
+    - cordova-plugin-globalization
+    - cordova-plugin-network-information
+    - cordova-plugin-wkwebview-engine
+    - CordovaPlugin-console
+
+DEPENDENCIES:
+  - GoogleMaps
+  - GooglePlaces
+  - MapsAPI
+
+SPEC CHECKSUMS:
+  Cordova: 9e3e474dc62b9de3ae497093fc7f66157917be74
+  cordova-plugin-device: 3412e6b48e329996ba17c845cdd25cb9ac0af7e2
+  cordova-plugin-device-motion: 30503b3ba3092dbccdca9dc34f9d4ec851bf3e80
+  cordova-plugin-device-orientation: 687a72efac2398955ed256d856dc822850a69edb
+  cordova-plugin-file: d4bb83c4a62ed990a57db171ab3b04c516808f5c
+  cordova-plugin-geolocation: 05450762ef68612bf857b61c36877b21c1266420
+  cordova-plugin-globalization: bd6ba379dfef19c46d905fa2fe75be64e247e1a2
+  cordova-plugin-network-information: eb6d5b97e395f9c0199cae2128319c054753f3ea
+  cordova-plugin-wkwebview-engine: d07b627d9d0cfcc4276671cddb3bb7b6a842e67c
+  CordovaPlugin-console: aeb6015a9830edaaf8158a6b49f18189ebf38aa5
+  GoogleMaps: 8436ab5d1c25e36915b2f7416d0c8e3fa2e76c61
+  GooglePlaces: aafe5990fa7951e98e078761bbdaaf236d7e0c65
+  MapsAPI: 486084340a7ea19852a7366bea3b3c8d10bba166
+
+PODFILE CHECKSUM: e4eaa10990f57a4a4cedbf6e1acd349e7e8de91d
+
+COCOAPODS: 1.3.1
