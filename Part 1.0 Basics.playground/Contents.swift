@@ -18,3 +18,27 @@ num4 = bufferNum
 
 // Вывод на консоль с описанием выводимых значений
 print("num3 = \(num3)", "num4 = \(num4)")
+
+
+var str1 = "sting"
+var name = 12
+name = 24
+print(name)
+
+let cons = 14
+let cons2 = Int8.max
+
+var one = 1, two = 2, three = 3
+
+print(one, two, three)
+
+var dØw = "RϙЇ"
+
+func someFunction(type: String) {}
+
+someFunction(type: "test")
+someFunction(type: "String")
+
+let str2: String
+
+str2 = "4"
