@@ -194,4 +194,43 @@ func cry() -> Bool {
     return true
 }
 
+typealias Chessman = [String:(alpha:Character, num:Int)?]
+var chessmans: Chessman = ["King":("a", 5), "Queen":("c", 8), "Pawn":nil]
+//if let coordinate = chessmans["King"]! {
+//    print("Coordinates of King is \(coordinate)")
+//} else {
+//    print("King is dead")
+//}
+//if let coordinate = chessmans["Queen"]! {
+//    print("Coordinates of Queen is \(coordinate)")
+//} else {
+//    print("Queen is dead")
+//}
+//if let coordinate = chessmans["Pawn"]! {
+//    print("Coordinates of Pawn is \(coordinate)")
+//} else {
+//    print("Pawn is dead")
+//}
+func chessAnalizer(figures: Chessman) {
+for figure in chessmans {
+    if figure.value != nil {
+        print("Coordinates of \(figure.key) is \(figure.value!)")
+    } else {
+        print("\(figure.key) is dead")
+        
+    }
+}
+}
 
+chessAnalizer(figures: chessmans)
+
+func editChess(chessmans: inout Chessman, nameFigure: String, coordinates: (Character, Int)? = nil) {
+    if chessmans[nameFigure] != nil {
+        chessmans.updateValue(coordinates, forKey: nameFigure)
+        } else {
+            chessmans = [nameFigure:(coordinates)]
+        }
+    
+}
+editChess(chessmans: &chessmans, nameFigure: "Queen", coordinates: ("z", 3))
+chessmans
