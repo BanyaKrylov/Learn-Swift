@@ -115,22 +115,29 @@ var auto = Automobile(doors: 4, transmission: "Auto")
 auto.power
 
 //7. Напишите класс для калькулятора с функциями для сложения, вычитания, умножения и деления цифр, которые в нем хранятся как свойства.
+enum Operators {
+    case plus, minus, division, multiplication
+}
 class Calculator {
-    func plus(num1: Double, num2: Double) -> Double {
-        return num1 + num2
+    let typeOperator: Operators
+    init(typeOperator: Operators) {
+        self.typeOperator = typeOperator
     }
-    func minus(num1: Double, num2: Double) -> Double {
-        return num1 - num2
-    }
-    func multiplication(num1: Double, num2: Double) -> Double {
-        return num1 * num2
-    }
-    func division(num1: Double, num2: Double) -> Double {
-        return num1 / num2
+    func calculate(num1: Double, num2: Double) -> Double {
+        switch typeOperator {
+        case .plus:
+            return num1 + num2
+        case .minus:
+            return num1 - num2
+        case .division:
+            return num1 / num2
+        case .multiplication:
+            return num1 * num2
+        }
     }
 }
-var sum = Calculator()
-sum.plus(num1: 5, num2: 7)
+var sum = Calculator(typeOperator: .plus)
+sum.calculate(num1: 1, num2: 3)
 
 //8. В каких случаях следует использовать ключевое слово static?
 //В случаях, когда нам необходимо, чтобы свойство или функция принадлежала не экземпляру класса, а самому классу и не могла быть вызвана напрямую.
