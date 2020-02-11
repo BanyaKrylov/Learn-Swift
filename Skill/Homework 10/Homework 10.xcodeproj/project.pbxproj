@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7AB7D9E23F18FF1002E1A7E /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AB7D9D23F18FF1002E1A7E /* TwoViewController.swift */; };
+		F7AB7DA623F19F59002E1A7E /* CellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AB7DA523F19F59002E1A7E /* CellTableViewCell.swift */; };
+		F7AB7DA823F1CCC4002E1A7E /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AB7DA723F1CCC4002E1A7E /* ThreeViewController.swift */; };
 		F7B61BBB23F02CE700000DA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B61BBA23F02CE700000DA1 /* AppDelegate.swift */; };
 		F7B61BBD23F02CE700000DA1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B61BBC23F02CE700000DA1 /* SceneDelegate.swift */; };
 		F7B61BBF23F02CE700000DA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B61BBE23F02CE700000DA1 /* ViewController.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F7AB7D9D23F18FF1002E1A7E /* TwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
+		F7AB7DA523F19F59002E1A7E /* CellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTableViewCell.swift; sourceTree = "<group>"; };
+		F7AB7DA723F1CCC4002E1A7E /* ThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
 		F7B61BB723F02CE700000DA1 /* Homework 10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homework 10.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B61BBA23F02CE700000DA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7B61BBC23F02CE700000DA1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,11 +70,14 @@
 				F7B61BBC23F02CE700000DA1 /* SceneDelegate.swift */,
 				F7B61BBE23F02CE700000DA1 /* ViewController.swift */,
 				F7B61BC023F02CE700000DA1 /* Main.storyboard */,
+				F7AB7D9D23F18FF1002E1A7E /* TwoViewController.swift */,
 				F7B61BD023F0325100000DA1 /* OneViewController.swift */,
 				F7B61BCE23F030C100000DA1 /* CellCollectionViewCell.swift */,
 				F7B61BC323F02CE800000DA1 /* Assets.xcassets */,
 				F7B61BC523F02CE800000DA1 /* LaunchScreen.storyboard */,
 				F7B61BC823F02CE800000DA1 /* Info.plist */,
+				F7AB7DA523F19F59002E1A7E /* CellTableViewCell.swift */,
+				F7AB7DA723F1CCC4002E1A7E /* ThreeViewController.swift */,
 			);
 			path = "Homework 10";
 			sourceTree = "<group>";
@@ -147,8 +156,11 @@
 				F7B61BBF23F02CE700000DA1 /* ViewController.swift in Sources */,
 				F7B61BD123F0325100000DA1 /* OneViewController.swift in Sources */,
 				F7B61BBB23F02CE700000DA1 /* AppDelegate.swift in Sources */,
+				F7AB7DA823F1CCC4002E1A7E /* ThreeViewController.swift in Sources */,
 				F7B61BCF23F030C100000DA1 /* CellCollectionViewCell.swift in Sources */,
 				F7B61BBD23F02CE700000DA1 /* SceneDelegate.swift in Sources */,
+				F7AB7D9E23F18FF1002E1A7E /* TwoViewController.swift in Sources */,
+				F7AB7DA623F19F59002E1A7E /* CellTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
