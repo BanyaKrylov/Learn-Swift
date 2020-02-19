@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F776DD7523FD597C006A1EB5 /* AlamofireVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F776DD7423FD597C006A1EB5 /* AlamofireVC.swift */; };
+		F776DD7723FD59D4006A1EB5 /* AlamofireTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F776DD7623FD59D4006A1EB5 /* AlamofireTVC.swift */; };
+		F776DD7923FD5A6B006A1EB5 /* AlamofireThreeWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F776DD7823FD5A6B006A1EB5 /* AlamofireThreeWeather.swift */; };
+		F776DD7B23FD5ABA006A1EB5 /* AlamofireWeatherLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F776DD7A23FD5ABA006A1EB5 /* AlamofireWeatherLoader.swift */; };
 		F7A2303323FA7F7C0097EFE7 /* ThreeHoursCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A2303223FA7F7C0097EFE7 /* ThreeHoursCell.swift */; };
 		F7A2303B23FA891B0097EFE7 /* WeatherLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A2303A23FA891B0097EFE7 /* WeatherLoader.swift */; };
 		F7ACEF2023FC249C0033D638 /* ThreeWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ACEF1F23FC249C0033D638 /* ThreeWeather.swift */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F776DD7423FD597C006A1EB5 /* AlamofireVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireVC.swift; sourceTree = "<group>"; };
+		F776DD7623FD59D4006A1EB5 /* AlamofireTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireTVC.swift; sourceTree = "<group>"; };
+		F776DD7823FD5A6B006A1EB5 /* AlamofireThreeWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireThreeWeather.swift; sourceTree = "<group>"; };
+		F776DD7A23FD5ABA006A1EB5 /* AlamofireWeatherLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireWeatherLoader.swift; sourceTree = "<group>"; };
 		F7A2303223FA7F7C0097EFE7 /* ThreeHoursCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeHoursCell.swift; sourceTree = "<group>"; };
 		F7A2303A23FA891B0097EFE7 /* WeatherLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLoader.swift; sourceTree = "<group>"; };
 		F7ACEF1F23FC249C0033D638 /* ThreeWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeWeather.swift; sourceTree = "<group>"; };
@@ -66,9 +74,13 @@
 				F7B2E50423F6F7A7006CB90C /* SceneDelegate.swift */,
 				F7B2E50623F6F7A7006CB90C /* ViewController.swift */,
 				F7A2303A23FA891B0097EFE7 /* WeatherLoader.swift */,
+				F776DD7A23FD5ABA006A1EB5 /* AlamofireWeatherLoader.swift */,
 				F7ACEF1F23FC249C0033D638 /* ThreeWeather.swift */,
+				F776DD7823FD5A6B006A1EB5 /* AlamofireThreeWeather.swift */,
 				F7A2303223FA7F7C0097EFE7 /* ThreeHoursCell.swift */,
+				F776DD7623FD59D4006A1EB5 /* AlamofireTVC.swift */,
 				F7B2E50823F6F7A7006CB90C /* Main.storyboard */,
+				F776DD7423FD597C006A1EB5 /* AlamofireVC.swift */,
 				F7B2E50B23F6F7A9006CB90C /* Assets.xcassets */,
 				F7B2E50D23F6F7A9006CB90C /* LaunchScreen.storyboard */,
 				F7B2E51023F6F7A9006CB90C /* Info.plist */,
@@ -147,9 +159,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F776DD7923FD5A6B006A1EB5 /* AlamofireThreeWeather.swift in Sources */,
 				F7B2E50723F6F7A7006CB90C /* ViewController.swift in Sources */,
 				F7B2E50323F6F7A7006CB90C /* AppDelegate.swift in Sources */,
+				F776DD7723FD59D4006A1EB5 /* AlamofireTVC.swift in Sources */,
 				F7B2E50523F6F7A7006CB90C /* SceneDelegate.swift in Sources */,
+				F776DD7523FD597C006A1EB5 /* AlamofireVC.swift in Sources */,
+				F776DD7B23FD5ABA006A1EB5 /* AlamofireWeatherLoader.swift in Sources */,
 				F7ACEF2023FC249C0033D638 /* ThreeWeather.swift in Sources */,
 				F7A2303B23FA891B0097EFE7 /* WeatherLoader.swift in Sources */,
 				F7A2303323FA7F7C0097EFE7 /* ThreeHoursCell.swift in Sources */,
