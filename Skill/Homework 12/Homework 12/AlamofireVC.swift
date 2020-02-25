@@ -9,23 +9,23 @@
 import UIKit
 
 class AlamofireVC: UIViewController {
-
-     @IBOutlet weak var tempLabel: UILabel!
-       @IBOutlet weak var tableView: UITableView!
-       @IBOutlet weak var weatherLabel: UILabel!
-       @IBOutlet weak var todayLabel: UILabel!
-       
-       var weather: [(Weath)] = []
-       
-       override func viewDidLoad() {
-           super.viewDidLoad()
-           
-           todayLabel.text = "Weather now"
-           let loader = AlamofireWeatherLoader()
-           loader.delegate = self
-           loader.loadWeather()
-           loader.loadThreeWeather()
-       }
+    
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var weatherLabel: UILabel!
+    @IBOutlet weak var todayLabel: UILabel!
+    
+    var weather: [(AlamoWeath)] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        todayLabel.text = "Weather now"
+        let loader = AlamofireWeatherLoader()
+        loader.delegate = self
+        loader.alamoLoadWeather()
+        loader.alamoLoadThreeWeather()
+    }
 }
 
 extension AlamofireVC: AlamofireWeatherLoaderDelegate {
@@ -33,7 +33,7 @@ extension AlamofireVC: AlamofireWeatherLoaderDelegate {
         weatherLabel.text = "Weather condition: \(weatherCondition)"
         tempLabel.text = "Temperature : \(String(temp))°C"
     }
-    func threeLoaded(weathers: [(Weath)]) {
+    func threeLoaded(weathers: [(AlamoWeath)]) {
         self.weather = weathers
         tableView.reloadData()
     }

@@ -5,10 +5,6 @@
 //  Created by Ivan Krylov on 14.02.2020.
 //  Copyright © 2020 Ivan Krylov. All rights reserved.
 //
-/* Зарегистрируйтесь на https://openweathermap.org/api. Создайте один проект, в котором будет два контроллера, каждый из которых реализует следующие задачи (в первом контроллере с использованием стандартных средств, во втором – с использованием Alamofire):
- 
- Сделайте показ текущей погоды для Москвы
- Сделайте показ прогноза на ближайшие 5 дней и 3 часа в виде таблицы (тоже для Москвы) */
 
 import UIKit
 
@@ -29,6 +25,10 @@ class ViewController: UIViewController {
         loader.delegate = self
         loader.loadWeather()
         loader.loadThreeWeather()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 }
 
