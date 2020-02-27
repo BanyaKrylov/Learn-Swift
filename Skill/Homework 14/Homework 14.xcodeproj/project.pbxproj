@@ -18,6 +18,8 @@
 		F7231D3B240592870085F56B /* UserDefaultsPers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7231D3A240592870085F56B /* UserDefaultsPers.swift */; };
 		F7231D3F24059E500085F56B /* RealmPers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7231D3E24059E500085F56B /* RealmPers.swift */; };
 		F746C81F24068BA0005BEB18 /* RealmTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F746C81E24068BA0005BEB18 /* RealmTVC.swift */; };
+		F79BB01F2407FAA5009152FD /* CoreDataTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB01E2407FAA5009152FD /* CoreDataTVC.swift */; };
+		F79BB02124080B18009152FD /* CoreDataPers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB02024080B18009152FD /* CoreDataPers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		F7231D3A240592870085F56B /* UserDefaultsPers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPers.swift; sourceTree = "<group>"; };
 		F7231D3E24059E500085F56B /* RealmPers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPers.swift; sourceTree = "<group>"; };
 		F746C81E24068BA0005BEB18 /* RealmTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTVC.swift; sourceTree = "<group>"; };
+		F79BB01E2407FAA5009152FD /* CoreDataTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTVC.swift; sourceTree = "<group>"; };
+		F79BB02024080B18009152FD /* CoreDataPers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 				F7231D2124058C040085F56B /* AppDelegate.swift */,
 				F7231D2324058C040085F56B /* SceneDelegate.swift */,
 				F7231D2724058C040085F56B /* Main.storyboard */,
+				F79BB01E2407FAA5009152FD /* CoreDataTVC.swift */,
 				F7231D38240591290085F56B /* UserDeafultsVC.swift */,
 				F7231D3A240592870085F56B /* UserDefaultsPers.swift */,
 				F7231D3E24059E500085F56B /* RealmPers.swift */,
@@ -99,6 +104,7 @@
 				F7231D2F24058C050085F56B /* LaunchScreen.storyboard */,
 				F7231D3224058C050085F56B /* Info.plist */,
 				F7231D2A24058C040085F56B /* Homework_14.xcdatamodeld */,
+				F79BB02024080B18009152FD /* CoreDataPers.swift */,
 			);
 			path = "Homework 14";
 			sourceTree = "<group>";
@@ -218,10 +224,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F79BB02124080B18009152FD /* CoreDataPers.swift in Sources */,
 				F7231D2C24058C040085F56B /* Homework_14.xcdatamodeld in Sources */,
 				F746C81F24068BA0005BEB18 /* RealmTVC.swift in Sources */,
 				F7231D3B240592870085F56B /* UserDefaultsPers.swift in Sources */,
 				F7231D2224058C040085F56B /* AppDelegate.swift in Sources */,
+				F79BB01F2407FAA5009152FD /* CoreDataTVC.swift in Sources */,
 				F7231D2424058C040085F56B /* SceneDelegate.swift in Sources */,
 				F7231D3F24059E500085F56B /* RealmPers.swift in Sources */,
 				F7231D39240591290085F56B /* UserDeafultsVC.swift in Sources */,

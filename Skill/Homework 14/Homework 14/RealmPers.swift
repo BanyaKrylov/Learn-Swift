@@ -9,34 +9,6 @@
 import Foundation
 import RealmSwift
 
-//var toDoList: [[String: Any]] {
-//    set {
-//        UserDefaults.standard.set(newValue, forKey: "ToDoListKey")
-//        UserDefaults.standard.synchronize()
-//    }
-//    get {
-//        if let array = UserDefaults.standard.array(forKey: "ToDoListKey") as? [[String: Any]] {
-//            return array
-//        } else {
-//            return []
-//        }
-//    }
-//}
-//
-//func addNewTask(nameTask: String, isCompleted: Bool = false) {
-//    toDoList.append(["Name": nameTask, "isCompleted": false])
-//}
-//
-//func removeTask(at index: Int) {
-//    toDoList.remove(at: index)
-//}
-//
-//func changeStatus(at task: Int) -> Bool{
-//    toDoList[task]["isCompleted"] = !(toDoList[task]["isCompleted"] as! Bool)
-//
-//    return toDoList[task]["isCompleted"] as! Bool
-//}
-
 class Items1: Object {
     @objc dynamic var names = ""
     @objc dynamic var isCompleted = false
