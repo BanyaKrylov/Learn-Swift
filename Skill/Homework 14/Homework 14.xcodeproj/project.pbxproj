@@ -18,6 +18,10 @@
 		F7231D3B240592870085F56B /* UserDefaultsPers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7231D3A240592870085F56B /* UserDefaultsPers.swift */; };
 		F7231D3F24059E500085F56B /* RealmPers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7231D3E24059E500085F56B /* RealmPers.swift */; };
 		F746C81F24068BA0005BEB18 /* RealmTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F746C81E24068BA0005BEB18 /* RealmTVC.swift */; };
+		F75556092408459600A1E43E /* AlamofireVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75556082408459600A1E43E /* AlamofireVC.swift */; };
+		F755560B240845D100A1E43E /* AlamofireTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755560A240845D100A1E43E /* AlamofireTVC.swift */; };
+		F755560D240845F900A1E43E /* AlamofireThreeWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755560C240845F900A1E43E /* AlamofireThreeWeather.swift */; };
+		F755560F2408464300A1E43E /* AlamofireWeatherLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755560E2408464300A1E43E /* AlamofireWeatherLoader.swift */; };
 		F79BB01F2407FAA5009152FD /* CoreDataTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB01E2407FAA5009152FD /* CoreDataTVC.swift */; };
 		F79BB02124080B18009152FD /* CoreDataPers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB02024080B18009152FD /* CoreDataPers.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +42,10 @@
 		F7231D3A240592870085F56B /* UserDefaultsPers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPers.swift; sourceTree = "<group>"; };
 		F7231D3E24059E500085F56B /* RealmPers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPers.swift; sourceTree = "<group>"; };
 		F746C81E24068BA0005BEB18 /* RealmTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTVC.swift; sourceTree = "<group>"; };
+		F75556082408459600A1E43E /* AlamofireVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireVC.swift; sourceTree = "<group>"; };
+		F755560A240845D100A1E43E /* AlamofireTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireTVC.swift; sourceTree = "<group>"; };
+		F755560C240845F900A1E43E /* AlamofireThreeWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireThreeWeather.swift; sourceTree = "<group>"; };
+		F755560E2408464300A1E43E /* AlamofireWeatherLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireWeatherLoader.swift; sourceTree = "<group>"; };
 		F79BB01E2407FAA5009152FD /* CoreDataTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTVC.swift; sourceTree = "<group>"; };
 		F79BB02024080B18009152FD /* CoreDataPers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +103,10 @@
 				F7231D2124058C040085F56B /* AppDelegate.swift */,
 				F7231D2324058C040085F56B /* SceneDelegate.swift */,
 				F7231D2724058C040085F56B /* Main.storyboard */,
+				F75556082408459600A1E43E /* AlamofireVC.swift */,
+				F755560E2408464300A1E43E /* AlamofireWeatherLoader.swift */,
+				F755560A240845D100A1E43E /* AlamofireTVC.swift */,
+				F755560C240845F900A1E43E /* AlamofireThreeWeather.swift */,
 				F79BB01E2407FAA5009152FD /* CoreDataTVC.swift */,
 				F7231D38240591290085F56B /* UserDeafultsVC.swift */,
 				F7231D3A240592870085F56B /* UserDefaultsPers.swift */,
@@ -225,14 +237,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F79BB02124080B18009152FD /* CoreDataPers.swift in Sources */,
+				F755560B240845D100A1E43E /* AlamofireTVC.swift in Sources */,
 				F7231D2C24058C040085F56B /* Homework_14.xcdatamodeld in Sources */,
 				F746C81F24068BA0005BEB18 /* RealmTVC.swift in Sources */,
 				F7231D3B240592870085F56B /* UserDefaultsPers.swift in Sources */,
 				F7231D2224058C040085F56B /* AppDelegate.swift in Sources */,
+				F755560D240845F900A1E43E /* AlamofireThreeWeather.swift in Sources */,
 				F79BB01F2407FAA5009152FD /* CoreDataTVC.swift in Sources */,
 				F7231D2424058C040085F56B /* SceneDelegate.swift in Sources */,
 				F7231D3F24059E500085F56B /* RealmPers.swift in Sources */,
 				F7231D39240591290085F56B /* UserDeafultsVC.swift in Sources */,
+				F755560F2408464300A1E43E /* AlamofireWeatherLoader.swift in Sources */,
+				F75556092408459600A1E43E /* AlamofireVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
