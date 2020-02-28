@@ -9,49 +9,60 @@
 import UIKit
 
 class AlamofireVC: UIViewController {
-
-  @IBOutlet weak var tempLabel: UILabel!
-        @IBOutlet weak var tableView: UITableView!
-        @IBOutlet weak var weatherLabel: UILabel!
-        @IBOutlet weak var todayLabel: UILabel!
+    
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var weatherLabel: UILabel!
+    @IBOutlet weak var todayLabel: UILabel!
+    
+    var weather: [(AlamoWeath)] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        var weather: [(AlamoWeath)] = []
+        todayLabel.text = "Weather now"
         
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            
-            todayLabel.text = "Weather now"
-            let loader = AlamofireWeatherLoader()
-            loader.delegate = self
-            loader.alamoLoadWeather()
-            loader.alamoLoadThreeWeather()
+        if AlamofirePers.alamoShared.weatherLabel != nil {
+            weatherLabel.text! = AlamofirePers.alamoShared.weatherLabel!
         }
+        if AlamofirePers.alamoShared.tempLabel != nil {
+            tempLabel.text! = AlamofirePers.alamoShared.tempLabel!
+        }
+        
+        let loader = AlamofireWeatherLoader()
+        
+        loader.delegate = self
+        loader.alamoLoadWeather()
+        loader.alamoLoadThreeWeather()
     }
+}
 
-    extension AlamofireVC: AlamofireWeatherLoaderDelegate {
-        func loaded(weatherCondition: String, temp: Int) {
-            weatherLabel.text = "Weather condition: \(weatherCondition)"
-            tempLabel.text = "Temperature : \(String(temp))°C"
-        }
-        func threeLoaded(weathers: [(AlamoWeath)]) {
-            self.weather = weathers
-            tableView.reloadData()
-        }
+extension AlamofireVC: AlamofireWeatherLoaderDelegate {
+    func loaded(weatherCondition: String, temp: Int) {
+        weatherLabel.text = "Weather condition: \(weatherCondition)"
+        AlamofirePers.alamoShared.weatherLabel = weatherLabel.text
+        tempLabel.text = "Temperature : \(String(temp))°C"
+        AlamofirePers.alamoShared.tempLabel = tempLabel.text
     }
+    func threeLoaded(weathers: [(AlamoWeath)]) {
+        self.weather = weathers
+        tableView.reloadData()
+    }
+}
 
-    extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return weather.count
-        }
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AlamoCell") as! AlamofireTVC
-            
-            let weatherThreeHours = weather[indexPath.row]
-            cell.dateCell.text = weatherThreeHours.date
-            cell.conditionCell.text = weatherThreeHours.weatherCondition
-            cell.tempCell.text = "\(String(weatherThreeHours.temp))°C"
-            
-            return cell
-        }
+extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return weather.count
     }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlamoCell") as! AlamofireTVC
+        
+        let weatherThreeHours = weather[indexPath.row]
+        cell.dateCell.text = weatherThreeHours.date
+        cell.conditionCell.text = weatherThreeHours.weatherCondition
+        cell.tempCell.text = "\(String(weatherThreeHours.temp))°C"
+        
+        return cell
+    }
+}
 

@@ -9,7 +9,7 @@
 import Foundation
 
 class AlamofireThreeWeather {
-var weatherCondition: String = ""
+    var weatherCondition: String = ""
     var temp: Int = 0
     var date: String = ""
     

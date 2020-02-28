@@ -29,5 +29,4 @@ class UserDeafultsVC: UIViewController {
             surnameTextField.text! = UserDefaultsPers.shared.userSurname!
         }
     }
-    
 }
