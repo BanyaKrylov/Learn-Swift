@@ -11,21 +11,10 @@ import Alamofire
 
 protocol AlamofireWeatherLoaderDelegate {
     func loaded(weatherCondition: String, temp: Int)
-    func threeLoaded(weathers: [(AlamoWeath)])
+    func threeLoaded(weathers: [[String: String]])
 }
-
-struct AlamoWeath {
-    var weatherCondition: String = ""
-    var temp: Int = 0
-    var date: String = ""
-}
-
 class AlamofireWeatherLoader {
     
-    var weatherCondition: String = ""
-    var temp: Int = 0
-    var date: String = ""
-    var weathers: [(AlamoWeath)] = []
     var delegate: AlamofireWeatherLoaderDelegate?
     
     func alamoLoadWeather() { AF.request("https://api.openweathermap.org/data/2.5/weather?q=Moscow&appid=92b4b4d3adefbf2010168479c963dd64").responseJSON() { response in
@@ -33,19 +22,19 @@ class AlamofireWeatherLoader {
             if let jsonDict = objects as? NSDictionary {
                 if let mainJson = jsonDict["main"] as? NSDictionary {
                     if let temp = mainJson["temp"] as? Double {
-                        self.temp = Int(round(temp - 273.15))
+                        AlamofirePers.alamoShared.tempLabel = Int(round(temp - 273.15))
                     }
                 }
                 if let nestedJson = jsonDict["weather"] as? NSArray {
                     if let desc = nestedJson[0] as? NSDictionary {
                         if let weathCond = desc["description"] as? String {
-                            self.weatherCondition = weathCond
+                            AlamofirePers.alamoShared.weatherLabel = weathCond
                         }
                     }
                 }
             }
             DispatchQueue.main.async {
-                self.delegate?.loaded(weatherCondition: self.weatherCondition, temp: self.temp)
+                self.delegate?.loaded(weatherCondition: AlamofirePers.alamoShared.weatherLabel!, temp: AlamofirePers.alamoShared.tempLabel!)
             }
         }
         }
@@ -76,12 +65,20 @@ class AlamofireWeatherLoader {
                                 }
                             }
                         }
-                        self.weathers.append(.init(weatherCondition: w, temp: t, date: d))
+                        var index = 0
+                        if AlamofirePers.alamoShared.alamoCache.count < 40 { AlamofirePers.alamoShared.alamoCache.append(["date": d, "condition": w, "temp": String(t)])
+                        } else {
+                            AlamofirePers.alamoShared.alamoCache[index] = ["date": d, "condition": w, "temp": String(t)]
+                            index += 1
+                        }
+                        if index == 40 {
+                            index = 0
+                        }
                     }
                 }
             }
             DispatchQueue.main.async {
-                self.delegate?.threeLoaded(weathers: self.weathers)
+                self.delegate?.threeLoaded(weathers: AlamofirePers.alamoShared.alamoCache)
             }
         }
         }

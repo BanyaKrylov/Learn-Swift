@@ -15,7 +15,7 @@ class AlamofireVC: UIViewController {
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var todayLabel: UILabel!
     
-    var weather: [(AlamoWeath)] = []
+    var weather: [[String: String]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,25 +26,23 @@ class AlamofireVC: UIViewController {
             weatherLabel.text! = AlamofirePers.alamoShared.weatherLabel!
         }
         if AlamofirePers.alamoShared.tempLabel != nil {
-            tempLabel.text! = AlamofirePers.alamoShared.tempLabel!
+            tempLabel.text! = String(AlamofirePers.alamoShared.tempLabel!)
         }
         
         let loader = AlamofireWeatherLoader()
-        
         loader.delegate = self
         loader.alamoLoadWeather()
         loader.alamoLoadThreeWeather()
+        
     }
 }
 
 extension AlamofireVC: AlamofireWeatherLoaderDelegate {
     func loaded(weatherCondition: String, temp: Int) {
         weatherLabel.text = "Weather condition: \(weatherCondition)"
-        AlamofirePers.alamoShared.weatherLabel = weatherLabel.text
-        tempLabel.text = "Temperature : \(String(temp))°C"
-        AlamofirePers.alamoShared.tempLabel = tempLabel.text
+        tempLabel.text = "Temperature : \(temp)°C"
     }
-    func threeLoaded(weathers: [(AlamoWeath)]) {
+    func threeLoaded(weathers: [[String: String]]) {
         self.weather = weathers
         tableView.reloadData()
     }
@@ -52,15 +50,16 @@ extension AlamofireVC: AlamofireWeatherLoaderDelegate {
 
 extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(weather.count)
         return weather.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlamoCell") as! AlamofireTVC
-        
-        let weatherThreeHours = weather[indexPath.row]
-        cell.dateCell.text = weatherThreeHours.date
-        cell.conditionCell.text = weatherThreeHours.weatherCondition
-        cell.tempCell.text = "\(String(weatherThreeHours.temp))°C"
+        let weatherThreeHours: [String: String]
+        weatherThreeHours = weather[indexPath.row]
+        cell.dateCell.text = weatherThreeHours["date"]
+        cell.conditionCell.text = weatherThreeHours["condition"]
+        cell.tempCell.text = "\(String(weatherThreeHours["temp"]!))°C"
         
         return cell
     }

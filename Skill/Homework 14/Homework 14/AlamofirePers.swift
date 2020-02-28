@@ -7,16 +7,25 @@
 //
 
 import Foundation
-import RealmSwift
 
 class AlamofirePers {
     static let alamoShared = AlamofirePers()
     
+    var alamoCache: [[String: String]] {
+        set {
+            UserDefaults.standard.set(newValue, forKey: "alamoCacheKey")
+            UserDefaults.standard.synchronize()
+        }
+        get {
+            if let array = UserDefaults.standard.array(forKey: "alamoCacheKey") as? [[String: String]] {
+                return array
+            } else {
+                return []
+            }
+        }
+    }
     private let weatherLabelKey = "UserDefaultsPers.weatherLabelKey"
     private let tempLabelKey = "UserDefaultsPers.tempLabelKey"
-    private let dateCellKey = "UserDefaultsPers.dateCellKey"
-    private let conditionCellKey = "UserDefaultsPers.conditionCellKey"
-    private let tempCellKey = "UserDefaultsPers.tempCellKey"
     
     var weatherLabel: String? {
         set {
@@ -26,12 +35,13 @@ class AlamofirePers {
             return UserDefaults.standard.string(forKey: weatherLabelKey)
         }
     }
-    var tempLabel: String? {
+    var tempLabel: Int? {
         set {
             UserDefaults.standard.set(newValue, forKey: tempLabelKey)
         }
         get {
-            return UserDefaults.standard.string(forKey: tempLabelKey)
+            return UserDefaults.standard.integer(forKey: tempLabelKey)
         }
     }
 }
+
