@@ -45,18 +45,18 @@ func delayed() {
 functionOne(funcForDelay: delayed())
 
 //Напишите функцию, которая принимает в себя две функции и возвращает функцию, которая при вызове выполнит первые две функции
-func functionTwo(oneFinc: String, twoFunc: String){
+func functionTwo(oneFinc: (Void), twoFunc: (Void)){
     print("Two")
     print(oneFinc)
     print(twoFunc)
 }
-func oneFunc() -> String{
-    return "oneFunc"
+func oneFunc(){
+     print("oneFunc")
 }
-func twoFunc() -> String{
-    return "twoFunc"
+func twoFunc(){
+    print("twoFunc")
 }
-func functionThree(oneFinc: String, twoFunc: String) -> () {
+func functionThree(oneFinc: (Void), twoFunc: (Void)) -> () {
     return functionTwo(oneFinc: oneFinc, twoFunc: twoFunc)
 }
 functionThree(oneFinc: oneFunc(), twoFunc: twoFunc())
