@@ -85,6 +85,7 @@
                         <viewLayoutGuide key="safeArea" id="ghd-WX-Vks"/>
                     </view>
                     <connections>
+                        <outlet property="avgTemp4AllCities" destination="hU7-WR-SPA" id="e1K-Ta-Ygv"/>
                         <outlet property="tableView" destination="6nm-fk-I9Y" id="3FG-nn-NRi"/>
                     </connections>
                 </viewController>
