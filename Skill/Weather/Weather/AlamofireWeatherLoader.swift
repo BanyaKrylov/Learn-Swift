@@ -23,7 +23,7 @@ class AlamofireWeatherLoader {
     
     var delegate: AlamofireWeatherLoaderDelegate?
     var weathers: [(AlamoWeath)] = []
-    var citiesForWeather = ["Moscow", "Barnaul", "Tomsk", "Vladivostok", "Novosibirsk", "Omsk", "Sochi", "Volgograd", "Saint Petersburg", "Yamal"]
+    var citiesForWeather = ["Moscow", "Barnaul", "Tomsk", "Vladivostok", "Novosibirsk", "Omsk", "Sochi", "Volgograd", "Rostov", "Rostov-on-Don"]
     var cityName: String = ""
     var datePeriod: String = ""
     var averageTemp: Int = 0
@@ -64,7 +64,7 @@ class AlamofireWeatherLoader {
                     }
                 }
                 self.weathers.append(.init(city: self.cityName, temp: Int(self.averageTemp / self.countItems), date: self.datePeriod))
-                
+                self.averageTemp = 0
                 DispatchQueue.main.async {
                     self.delegate?.threeLoaded(weathers: self.weathers)
                 }
@@ -72,6 +72,5 @@ class AlamofireWeatherLoader {
             }
         }
     }
-    
 }
 

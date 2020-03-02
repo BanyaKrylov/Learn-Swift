@@ -35,8 +35,7 @@ class AlamofireVC: UIViewController {
     }
     
     var weather: [(AlamoWeath)] = []
-    var citiesForWeather = ["Moscow", "Barnaul", "Tomsk", "Vladivostok", "Novosibirsk", "Omsk", "Sochi", "Volgograd", "Saint Petersburg", "Yamal"]
-    var titleq = 0
+    var citiesForWeather = ["Moscow", "Barnaul", "Tomsk", "Vladivostok", "Novosibirsk", "Omsk", "Sochi", "Volgograd", "Rostov", "Rostov-on-Don"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +55,6 @@ extension AlamofireVC: AlamofireWeatherLoaderDelegate {
 
 extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        avgTemp4AllCities.title = String(titleq / weather.count)
         return weather.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,7 +63,6 @@ extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
         cell.dateCell.text = weatherThreeHours.date
         cell.cityCell.text = weatherThreeHours.city
         cell.tempCell.text = "\(String(describing: weatherThreeHours.temp))°C"
-        titleq += weatherThreeHours.temp
         
         return cell
     }
