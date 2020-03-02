@@ -34,7 +34,7 @@ class AlamofireVC: UIViewController {
     }
     
     var weather: [(AlamoWeath)] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,14 +53,15 @@ extension AlamofireVC: AlamofireWeatherLoaderDelegate {
 
 extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weather.count
+        return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlamoCell") as! AlamofireTVC
-        let weatherThreeHours = weather[indexPath.row]
-        cell.dateCell.text = weatherThreeHours.date
-        cell.conditionCell.text = weatherThreeHours.weatherCondition
-        cell.tempCell.text = "\(String(weatherThreeHours.temp))°C"
+        let weatherThreeHours = weather.first
+        let wea = weather.last
+        cell.dateCell.text = String("\(weatherThreeHours?.date) - \(wea?.date)")
+        cell.cityCell.text = weatherThreeHours?.city
+        cell.tempCell.text = "\(String(describing: weatherThreeHours?.temp))°C"
         
         return cell
     }

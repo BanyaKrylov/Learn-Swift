@@ -12,7 +12,7 @@ class AlamofireTVC: UITableViewCell {
     
     @IBOutlet weak var dateCell: UILabel!
     @IBOutlet weak var tempCell: UILabel!
-    @IBOutlet weak var conditionCell: UILabel!
+    @IBOutlet weak var cityCell: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
