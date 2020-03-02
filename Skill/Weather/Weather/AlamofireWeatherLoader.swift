@@ -10,11 +10,19 @@ import Foundation
 import Alamofire
 
 protocol AlamofireWeatherLoaderDelegate {
-    func threeLoaded(weathers: [[String: String]])
+    func threeLoaded(weathers: [(AlamoWeath)])
 }
+
+struct AlamoWeath {
+    var weatherCondition: String = ""
+    var temp: Int = 0
+    var date: String = ""
+}
+
 class AlamofireWeatherLoader {
     
     var delegate: AlamofireWeatherLoaderDelegate?
+    var weathers: [(AlamoWeath)] = []
     
     func alamoLoadThreeWeather() { AF.request("https://api.openweathermap.org/data/2.5/forecast?q=Moscow&appid=92b4b4d3adefbf2010168479c963dd64").responseJSON() { response in
         if let objects = response.value {
@@ -41,20 +49,12 @@ class AlamofireWeatherLoader {
                                 }
                             }
                         }
-                        var index = 0
-                        if AlamofirePers.alamoShared.alamoCache.count < 40 { AlamofirePers.alamoShared.alamoCache.append(["date": d, "condition": w, "temp": String(t)])
-                        } else {
-                            AlamofirePers.alamoShared.alamoCache[index] = ["date": d, "condition": w, "temp": String(t)]
-                            index += 1
-                        }
-                        if index == 40 {
-                            index = 0
-                        }
+                        self.weathers.append(.init(weatherCondition: w, temp: t, date: d))
                     }
                 }
             }
             DispatchQueue.main.async {
-                self.delegate?.threeLoaded(weathers: AlamofirePers.alamoShared.alamoCache)
+                self.delegate?.threeLoaded(weathers: self.weathers)
             }
         }
         }

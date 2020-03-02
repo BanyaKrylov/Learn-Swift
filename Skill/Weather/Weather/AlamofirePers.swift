@@ -7,40 +7,35 @@
 //
 
 import Foundation
+import CoreData
+import UIKit
 
-class AlamofirePers {
-    static let alamoShared = AlamofirePers()
+var cities = [NSManagedObject]()
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let managedContext = appDelegate.persistentContainer.viewContext
+let entity =  NSEntityDescription.entity(forEntityName: "City", in: managedContext)
+
+func addNewCity(nameTask: String, isCompleted: Bool = false) {
+    let city = NSManagedObject(entity: entity!, insertInto:managedContext)
+    city.setValue(nameTask, forKey: "name")
+    cities.append(city)
     
-    var alamoCache: [[String: String]] {
-        set {
-            UserDefaults.standard.set(newValue, forKey: "alamoCacheKey")
-            UserDefaults.standard.synchronize()
-        }
-        get {
-            if let array = UserDefaults.standard.array(forKey: "alamoCacheKey") as? [[String: String]] {
-                return array
-            } else {
-                return []
-            }
-        }
+    do {
+        try managedContext.save()
+    } catch {
+        print(error)
     }
-    private let weatherLabelKey = "UserDefaultsPers.weatherLabelKey"
-    private let tempLabelKey = "UserDefaultsPers.tempLabelKey"
+}
+
+func removeCity(at index: Int) {
+    let objectToDelete = cities[index]
+    cities.remove(at: index)
+    managedContext.delete(objectToDelete)
     
-    var weatherLabel: String? {
-        set {
-            UserDefaults.standard.set(newValue, forKey: weatherLabelKey)
-        }
-        get {
-            return UserDefaults.standard.string(forKey: weatherLabelKey)
-        }
-    }
-    var tempLabel: Int? {
-        set {
-            UserDefaults.standard.set(newValue, forKey: tempLabelKey)
-        }
-        get {
-            return UserDefaults.standard.integer(forKey: tempLabelKey)
-        }
+    do {
+        try managedContext.save()
+    } catch {
+        let saveError = error as NSError
+        print(saveError)
     }
 }
