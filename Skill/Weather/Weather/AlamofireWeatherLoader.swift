@@ -10,35 +10,11 @@ import Foundation
 import Alamofire
 
 protocol AlamofireWeatherLoaderDelegate {
-    func loaded(weatherCondition: String, temp: Int)
     func threeLoaded(weathers: [[String: String]])
 }
 class AlamofireWeatherLoader {
     
     var delegate: AlamofireWeatherLoaderDelegate?
-    
-    func alamoLoadWeather() { AF.request("https://api.openweathermap.org/data/2.5/weather?q=Moscow&appid=92b4b4d3adefbf2010168479c963dd64").responseJSON() { response in
-        if let objects = response.value {
-            if let jsonDict = objects as? NSDictionary {
-                if let mainJson = jsonDict["main"] as? NSDictionary {
-                    if let temp = mainJson["temp"] as? Double {
-                        AlamofirePers.alamoShared.tempLabel = Int(round(temp - 273.15))
-                    }
-                }
-                if let nestedJson = jsonDict["weather"] as? NSArray {
-                    if let desc = nestedJson[0] as? NSDictionary {
-                        if let weathCond = desc["description"] as? String {
-                            AlamofirePers.alamoShared.weatherLabel = weathCond
-                        }
-                    }
-                }
-            }
-            DispatchQueue.main.async {
-                self.delegate?.loaded(weatherCondition: AlamofirePers.alamoShared.weatherLabel!, temp: AlamofirePers.alamoShared.tempLabel!)
-            }
-        }
-        }
-    }
     
     func alamoLoadThreeWeather() { AF.request("https://api.openweathermap.org/data/2.5/forecast?q=Moscow&appid=92b4b4d3adefbf2010168479c963dd64").responseJSON() { response in
         if let objects = response.value {

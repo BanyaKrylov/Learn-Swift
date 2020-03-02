@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AlamofireVC.swift
 //  Weather
 //
 //  Created by Ivan Krylov on 02.03.2020.
@@ -8,47 +8,29 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class AlamofireVC: UIViewController {
     
-    @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var weatherLabel: UILabel!
-    @IBOutlet weak var todayLabel: UILabel!
-    
     var weather: [[String: String]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        todayLabel.text = "Moscow"
-        
-        if AlamofirePers.alamoShared.weatherLabel != nil {
-            weatherLabel.text! = AlamofirePers.alamoShared.weatherLabel!
-        }
-        if AlamofirePers.alamoShared.tempLabel != nil {
-            tempLabel.text! = String(AlamofirePers.alamoShared.tempLabel!)
-        }
-        
         let loader = AlamofireWeatherLoader()
         loader.delegate = self
-        loader.alamoLoadWeather()
         loader.alamoLoadThreeWeather()
         
     }
 }
 
-extension ViewController: AlamofireWeatherLoaderDelegate {
-    func loaded(weatherCondition: String, temp: Int) {
-        weatherLabel.text = "Now - \(weatherCondition)"
-        tempLabel.text = "\(temp)°С"
-    }
+extension AlamofireVC: AlamofireWeatherLoaderDelegate {
     func threeLoaded(weathers: [[String: String]]) {
         self.weather = weathers
         tableView.reloadData()
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return weather.count
     }
@@ -62,6 +44,4 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
-    
 }
-
