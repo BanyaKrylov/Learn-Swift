@@ -42,23 +42,23 @@ class AlamofireWeatherLoader {
                         }
                     }
                     if let listJson = jsonDict["list"] as? NSArray {
+                        for item in listJson {
+                            if let main = item as? NSDictionary {
+                                if let temp = main["main"] as? NSDictionary {
+                                    if let temperature = temp["temp"] as? Double {
+                                        self.averageTemp += Int(round(temperature - 273.15))
+                                    }
+                                }
+                            }
+                        }
                         if let mainFirst = listJson[0] as? NSDictionary {
                             if let date = mainFirst["dt_txt"] as? String {
-                                self.datePeriod += date
+                                self.datePeriod = date
                             }
                         }
                         if let mainLast = listJson[self.countItems - 1] as? NSDictionary {
                             if let date = mainLast["dt_txt"] as? String {
                                 self.datePeriod += " - \(date)"
-                            }
-                            for item in listJson {
-                                if let main = item as? NSDictionary {
-                                    if let temp = main["main"] as? NSDictionary {
-                                        if let temperature = temp["temp"] as? Double {
-                                            self.averageTemp += Int(round(temperature - 273.15))
-                                        }
-                                    }
-                                }
                             }
                         }
                     }

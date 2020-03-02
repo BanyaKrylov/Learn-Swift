@@ -56,7 +56,7 @@ extension AlamofireVC: AlamofireWeatherLoaderDelegate {
 
 extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        avgTemp4AllCities.title = String(titleq / weather.count)
+//        avgTemp4AllCities.title = String(titleq / weather.count)
         return weather.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
