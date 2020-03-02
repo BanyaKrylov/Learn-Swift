@@ -20,7 +20,7 @@ class AlamofireVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        todayLabel.text = "Weather now"
+        todayLabel.text = "Moscow"
         
         if AlamofirePers.alamoShared.weatherLabel != nil {
             weatherLabel.text! = AlamofirePers.alamoShared.weatherLabel!
@@ -39,8 +39,8 @@ class AlamofireVC: UIViewController {
 
 extension AlamofireVC: AlamofireWeatherLoaderDelegate {
     func loaded(weatherCondition: String, temp: Int) {
-        weatherLabel.text = "Weather condition: \(weatherCondition)"
-        tempLabel.text = "Temperature : \(temp)°C"
+        weatherLabel.text = "Now - \(weatherCondition)"
+        tempLabel.text = "\(temp)°С"
     }
     func threeLoaded(weathers: [[String: String]]) {
         self.weather = weathers

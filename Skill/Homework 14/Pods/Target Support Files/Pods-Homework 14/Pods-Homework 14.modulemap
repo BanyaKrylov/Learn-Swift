@@ -1,4 +1,4 @@
-framework module Pods_Homework_14 {
+module Pods_Homework_14 {
   umbrella header "Pods-Homework 14-umbrella.h"
 
   export *

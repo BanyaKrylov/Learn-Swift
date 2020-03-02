@@ -7,7 +7,7 @@ PODS:
     - Realm (= 4.3.2)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 5.0)
   - RealmSwift
 
 SPEC REPOS:
@@ -21,6 +21,6 @@ SPEC CHECKSUMS:
   Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
   RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
 
-PODFILE CHECKSUM: a12e65574fd2e17868cc7cb8b3d4b37e2f066a81
+PODFILE CHECKSUM: c61f744e954e149e0a5b1d9b6f6e5b247c6ea53f
 
 COCOAPODS: 1.8.4
