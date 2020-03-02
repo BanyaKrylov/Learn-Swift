@@ -1,24 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p1K-sH-O5L">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Alamofire-->
+        <scene sceneID="reX-3f-Pe5">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="p1K-sH-O5L" customClass="ViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VAS-m9-uhJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Lfb-x0-u60">
+                                <rect key="frame" x="5" y="0.0" width="404" height="736"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="DOg-Jq-j4e">
+                                        <rect key="frame" x="0.0" y="0.0" width="404" height="368"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oli-IV-bx3">
+                                                <rect key="frame" x="0.0" y="0.0" width="404" height="263"/>
+                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="35"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0BY-Ki-rbw">
+                                                <rect key="frame" x="0.0" y="264" width="404" height="86"/>
+                                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="65"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leM-lu-BNV">
+                                                <rect key="frame" x="0.0" y="351" width="404" height="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RNs-9R-BbD">
+                                        <rect key="frame" x="0.0" y="368" width="404" height="368"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AlamoCell" id="h52-BV-T0q" customClass="AlamofireTVC" customModule="Weather" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="404" height="43.666667938232422"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h52-BV-T0q" id="pHU-1C-5VQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="404" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7P-hR-dOp">
+                                                            <rect key="frame" x="19.999999999999996" y="11.666666666666666" width="41.666666666666657" height="20.333333333333336"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr0-4O-ks7">
+                                                            <rect key="frame" x="330" y="8.6666666666666661" width="54" height="26.666666666666671"/>
+                                                            <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frE-YU-zz3">
+                                                            <rect key="frame" x="71.666666666666671" y="12" width="41.666666666666671" height="20"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="fr0-4O-ks7" secondAttribute="trailing" id="11W-87-ip1"/>
+                                                        <constraint firstItem="fr0-4O-ks7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="frE-YU-zz3" secondAttribute="trailing" constant="8" symbolic="YES" id="8DL-RI-P7s"/>
+                                                        <constraint firstItem="Y7P-hR-dOp" firstAttribute="leading" secondItem="pHU-1C-5VQ" secondAttribute="leadingMargin" id="BVY-f8-Z2l"/>
+                                                        <constraint firstItem="frE-YU-zz3" firstAttribute="centerY" secondItem="pHU-1C-5VQ" secondAttribute="centerY" id="Vwm-yr-jSL"/>
+                                                        <constraint firstItem="Y7P-hR-dOp" firstAttribute="centerY" secondItem="pHU-1C-5VQ" secondAttribute="centerY" id="YKj-uv-26u"/>
+                                                        <constraint firstItem="frE-YU-zz3" firstAttribute="leading" secondItem="Y7P-hR-dOp" secondAttribute="trailing" constant="10" id="ZcO-5V-Sx3"/>
+                                                        <constraint firstItem="fr0-4O-ks7" firstAttribute="centerY" secondItem="pHU-1C-5VQ" secondAttribute="centerY" id="jYb-KL-hYd"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="conditionCell" destination="frE-YU-zz3" id="zJo-x2-BWy"/>
+                                                    <outlet property="dateCell" destination="Y7P-hR-dOp" id="LgG-qk-Zcw"/>
+                                                    <outlet property="tempCell" destination="fr0-4O-ks7" id="jh9-EM-zfc"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="p1K-sH-O5L" id="nDW-kc-cfP"/>
+                                            <outlet property="delegate" destination="p1K-sH-O5L" id="C1h-H8-4RA"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Lfb-x0-u60" firstAttribute="top" secondItem="If1-Rx-APx" secondAttribute="top" id="6pr-Vt-fpg"/>
+                            <constraint firstItem="Lfb-x0-u60" firstAttribute="leading" secondItem="If1-Rx-APx" secondAttribute="leading" constant="5" id="REW-NR-Id1"/>
+                            <constraint firstItem="If1-Rx-APx" firstAttribute="bottom" secondItem="Lfb-x0-u60" secondAttribute="bottom" id="bfL-RF-nVH"/>
+                            <constraint firstItem="Lfb-x0-u60" firstAttribute="centerX" secondItem="VAS-m9-uhJ" secondAttribute="centerX" id="lHB-c0-Q4A"/>
+                            <constraint firstItem="If1-Rx-APx" firstAttribute="trailing" secondItem="Lfb-x0-u60" secondAttribute="trailing" constant="5" id="u13-q0-4ig"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="If1-Rx-APx"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Alamofire" id="BpC-Oj-uBa"/>
+                    <navigationItem key="navigationItem" id="yIu-ag-OtU"/>
+                    <connections>
+                        <outlet property="tableView" destination="RNs-9R-BbD" id="aG0-s2-iP3"/>
+                        <outlet property="tempLabel" destination="0BY-Ki-rbw" id="E9G-Co-jXy"/>
+                        <outlet property="todayLabel" destination="Oli-IV-bx3" id="Pbo-xd-grP"/>
+                        <outlet property="weatherLabel" destination="leM-lu-BNV" id="v3k-mf-Kj4"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jI3-85-CgU" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="268" y="53"/>
         </scene>
     </scenes>
 </document>
