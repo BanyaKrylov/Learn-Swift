@@ -23,53 +23,55 @@ class AlamofireWeatherLoader {
     
     var delegate: AlamofireWeatherLoaderDelegate?
     var weathers: [(AlamoWeath)] = []
-    var c: String = ""
-    var d: String = ""
-    var t: Int = 0
-    var count: Int = 0
+    var citiesForWeather = ["Moscow", "Barnaul", "Tomsk", "Vladivostok", "Novosibirsk", "Omsk", "Sochi", "Volgograd", "Saint Petersburg", "Yamal"]
+    var cityName: String = ""
+    var datePeriod: String = ""
+    var averageTemp: Int = 0
+    var countItems: Int = 0
     
-    func alamoLoadThreeWeather() { AF.request("https://api.openweathermap.org/data/2.5/forecast?q=Moscow&appid=92b4b4d3adefbf2010168479c963dd64").responseJSON() { response in
-        if let objects = response.value {
-            if let jsonDict = objects as? NSDictionary {
-                if let cntJson = jsonDict["cnt"] as? Int {
-                    self.count = cntJson
-                }
-                if let placeJson = jsonDict["city"] as? NSDictionary {
-                    if let city = placeJson["name"] as? String {
-                        self.c = city
+    func alamoLoadThreeWeather(city: [String]) {
+        for cityItem in city { AF.request("https://api.openweathermap.org/data/2.5/forecast?q=\(cityItem)&appid=92b4b4d3adefbf2010168479c963dd64").responseJSON() { response in
+            if let objects = response.value {
+                if let jsonDict = objects as? NSDictionary {
+                    if let cntJson = jsonDict["cnt"] as? Int {
+                        self.countItems = cntJson
                     }
-                }
-                if let listJson = jsonDict["list"] as? NSArray {
-                    
-                    
-                    if let mainFirst = listJson[0] as? NSDictionary {
-                        if let date = mainFirst["dt_txt"] as? String {
-                            self.d += date                            }
-                    }
-                    if let mainLast = listJson[self.count - 1] as? NSDictionary {
-                        if let date = mainLast["dt_txt"] as? String {
-                            self.d += " - \(date)"
+                    if let placeJson = jsonDict["city"] as? NSDictionary {
+                        if let city = placeJson["name"] as? String {
+                            self.cityName = city
                         }
-                        for item in listJson {
-                            if let main = item as? NSDictionary {
-                                if let temp = main["main"] as? NSDictionary {
-                                    if let temperature = temp["temp"] as? Double {
-                                        self.t += Int(round(temperature - 273.15))
+                    }
+                    if let listJson = jsonDict["list"] as? NSArray {
+                        if let mainFirst = listJson[0] as? NSDictionary {
+                            if let date = mainFirst["dt_txt"] as? String {
+                                self.datePeriod += date
+                            }
+                        }
+                        if let mainLast = listJson[self.countItems - 1] as? NSDictionary {
+                            if let date = mainLast["dt_txt"] as? String {
+                                self.datePeriod += " - \(date)"
+                            }
+                            for item in listJson {
+                                if let main = item as? NSDictionary {
+                                    if let temp = main["main"] as? NSDictionary {
+                                        if let temperature = temp["temp"] as? Double {
+                                            self.averageTemp += Int(round(temperature - 273.15))
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
+                self.weathers.append(.init(city: self.cityName, temp: Int(self.averageTemp / self.countItems), date: self.datePeriod))
+                
+                DispatchQueue.main.async {
+                    self.delegate?.threeLoaded(weathers: self.weathers)
+                }
             }
-            self.weathers.append(.init(city: self.c, temp: Int(self.t / self.count), date: self.d))
-            
-            DispatchQueue.main.async {
-                self.delegate?.threeLoaded(weathers: self.weathers)
             }
-        }
-        print(self.weathers)
         }
     }
+    
 }
 

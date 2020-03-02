@@ -34,13 +34,14 @@ class AlamofireVC: UIViewController {
     }
     
     var weather: [(AlamoWeath)] = []
-
+    var citiesForWeather = ["Moscow", "Barnaul", "Tomsk", "Vladivostok", "Novosibirsk", "Omsk", "Sochi", "Volgograd", "Saint Petersburg", "Yamal"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let loader = AlamofireWeatherLoader()
         loader.delegate = self
-        loader.alamoLoadThreeWeather()
+        loader.alamoLoadThreeWeather(city: citiesForWeather)
     }
 }
 
@@ -53,15 +54,14 @@ extension AlamofireVC: AlamofireWeatherLoaderDelegate {
 
 extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return weather.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlamoCell") as! AlamofireTVC
-        let weatherThreeHours = weather.first
-        let wea = weather.last
-        cell.dateCell.text = String("\(weatherThreeHours?.date) - \(wea?.date)")
-        cell.cityCell.text = weatherThreeHours?.city
-        cell.tempCell.text = "\(String(describing: weatherThreeHours?.temp))°C"
+        let weatherThreeHours = weather[indexPath.row]
+        cell.dateCell.text = weatherThreeHours.date
+        cell.cityCell.text = weatherThreeHours.city
+        cell.tempCell.text = "\(String(describing: weatherThreeHours.temp))°C"
         
         return cell
     }
