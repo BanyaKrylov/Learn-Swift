@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AlamofireVC: UIViewController {
     
@@ -26,6 +27,9 @@ class AlamofireVC: UIViewController {
         let alertActionCreate = UIAlertAction(title: "Create", style: .cancel) { (alert) in
             let newItem = alertController.textFields![0].text
             addNewCity(nameTask: newItem!)
+            let loader = AlamofireWeatherLoader()
+            loader.delegate = self
+            loader.alamoLoadThreeWeather()
             self.tableView.reloadData()
         }
         alertController.addAction(alertActionCancel)
@@ -35,20 +39,37 @@ class AlamofireVC: UIViewController {
     }
     
     var weather: [(AlamoWeath)] = []
-    var citiesForWeather = ["Moscow", "Barnaul", "Tomsk", "Vladivostok", "Novosibirsk", "Omsk", "Sochi", "Volgograd", "Rostov", "Rostov-on-Don"]
+    var citiesForWeather: [String] = []
+    
+    var all: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //        addStartCity()
         let loader = AlamofireWeatherLoader()
         loader.delegate = self
-        loader.alamoLoadThreeWeather(city: citiesForWeather)
+        loader.alamoLoadThreeWeather()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let appDelegate =
+            UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"City")
+        let fetchedResults = try! managedContext.fetch(fetchRequest)
+        
+        let results = fetchedResults
+        cities = results as! [NSManagedObject]
+        
     }
 }
 
 extension AlamofireVC: AlamofireWeatherLoaderDelegate {
-    func threeLoaded(weathers: [(AlamoWeath)]) {
+    func threeLoaded(weathers: [(AlamoWeath)], avgTemp4AllCities: Int) {
         self.weather = weathers
+        self.all = avgTemp4AllCities
         tableView.reloadData()
     }
 }
@@ -63,7 +84,7 @@ extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
         cell.dateCell.text = weatherThreeHours.date
         cell.cityCell.text = weatherThreeHours.city
         cell.tempCell.text = "\(String(describing: weatherThreeHours.temp))°C"
-        
+        avgTemp4AllCities.title = String(all)
         return cell
     }
 }

@@ -11,11 +11,26 @@ import CoreData
 import UIKit
 
 var cities = [NSManagedObject]()
+var startCities = ["Rostov", "Sochi", "Tomsk", "Omsk"]
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let managedContext = appDelegate.persistentContainer.viewContext
 let entity =  NSEntityDescription.entity(forEntityName: "City", in: managedContext)
 
-func addNewCity(nameTask: String, isCompleted: Bool = false) {
+func addStartCity() {
+    for item in startCities {
+        let city = NSManagedObject(entity: entity!, insertInto:managedContext)
+        city.setValue(item, forKey: "name")
+        cities.append(city)
+        
+        do {
+            try managedContext.save()
+        } catch {
+            print(error)
+        }
+    }
+}
+
+func addNewCity(nameTask: String) {
     let city = NSManagedObject(entity: entity!, insertInto:managedContext)
     city.setValue(nameTask, forKey: "name")
     cities.append(city)
@@ -25,6 +40,7 @@ func addNewCity(nameTask: String, isCompleted: Bool = false) {
     } catch {
         print(error)
     }
+    print(cities)
 }
 
 func removeCity(at index: Int) {

@@ -8,9 +8,9 @@
 
 import Foundation
 import Alamofire
-
+import CoreData
 protocol AlamofireWeatherLoaderDelegate {
-    func threeLoaded(weathers: [(AlamoWeath)])
+    func threeLoaded(weathers: [(AlamoWeath)], avgTemp4AllCities: Int)
 }
 
 struct AlamoWeath {
@@ -23,14 +23,14 @@ class AlamofireWeatherLoader {
     
     var delegate: AlamofireWeatherLoaderDelegate?
     var weathers: [(AlamoWeath)] = []
-    var citiesForWeather = ["Moscow", "Barnaul", "Tomsk", "Vladivostok", "Novosibirsk", "Omsk", "Sochi", "Volgograd", "Rostov", "Rostov-on-Don"]
     var cityName: String = ""
     var datePeriod: String = ""
     var averageTemp: Int = 0
     var countItems: Int = 0
+    var avgTemp4AllCities = 0
     
-    func alamoLoadThreeWeather(city: [String]) {
-        for cityItem in city { AF.request("https://api.openweathermap.org/data/2.5/forecast?q=\(cityItem)&appid=92b4b4d3adefbf2010168479c963dd64").responseJSON() { response in
+    func alamoLoadThreeWeather() {
+        for cityItem in cities { AF.request("https://api.openweathermap.org/data/2.5/forecast?q=\(cityItem.value(forKey: "name") as! String)&appid=92b4b4d3adefbf2010168479c963dd64").responseJSON() { response in
             if let objects = response.value {
                 if let jsonDict = objects as? NSDictionary {
                     if let cntJson = jsonDict["cnt"] as? Int {
@@ -47,6 +47,7 @@ class AlamofireWeatherLoader {
                                 if let temp = main["main"] as? NSDictionary {
                                     if let temperature = temp["temp"] as? Double {
                                         self.averageTemp += Int(round(temperature - 273.15))
+                                        self.avgTemp4AllCities += Int(round(temperature - 273.15))
                                     }
                                 }
                             }
@@ -65,8 +66,9 @@ class AlamofireWeatherLoader {
                 }
                 self.weathers.append(.init(city: self.cityName, temp: Int(self.averageTemp / self.countItems), date: self.datePeriod))
                 self.averageTemp = 0
+                self.avgTemp4AllCities /= self.weathers.count
                 DispatchQueue.main.async {
-                    self.delegate?.threeLoaded(weathers: self.weathers)
+                    self.delegate?.threeLoaded(weathers: self.weathers, avgTemp4AllCities: self.avgTemp4AllCities)
                 }
             }
             }
