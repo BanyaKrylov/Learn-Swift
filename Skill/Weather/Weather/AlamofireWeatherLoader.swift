@@ -19,7 +19,7 @@ struct AlamoWeath {
     var date: String = ""
 }
 
-class AlamofireWeatherLoader {
+class AlamofireWeatherLoader: DateFormatter {
     
     var delegate: AlamofireWeatherLoaderDelegate?
     var weathers: [(AlamoWeath)] = []
@@ -52,14 +52,29 @@ class AlamofireWeatherLoader {
                                         }
                                     }
                                 }
+                                let dateFormatterGet = DateFormatter()
+                                dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                
+                                let dateFormatterSet = DateFormatter()
+                                dateFormatterSet.locale = Locale(identifier: "ru_RU")
+                                dateFormatterSet.dateFormat = "dd MMM yyyy H:mm"
+                                
                                 if let mainFirst = listJson[0] as? NSDictionary {
                                     if let date = mainFirst["dt_txt"] as? String {
-                                        self.datePeriod = date
+                                        if let dateOne = dateFormatterGet.date(from: date) {
+                                            self.datePeriod = dateFormatterSet.string(from: dateOne)
+                                        } else {
+                                            print("There was an error decoding the string")
+                                        }
                                     }
                                 }
                                 if let mainLast = listJson[self.countItems - 1] as? NSDictionary {
                                     if let date = mainLast["dt_txt"] as? String {
-                                        self.datePeriod += " - \(date)"
+                                        if let dateTwo = dateFormatterGet.date(from: date) {
+                                            self.datePeriod += " - \(dateFormatterSet.string(from: dateTwo))"
+                                        } else {
+                                            print("There was an error decoding the string")
+                                        }
                                     }
                                 }
                             }

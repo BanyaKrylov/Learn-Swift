@@ -67,7 +67,7 @@ extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlamoCell") as! AlamofireTVC
         let weatherThreeHours = weather[indexPath.row]
-        
+      
         cell.dateCell.text = weatherThreeHours.date
         cell.cityCell.text = weatherThreeHours.city
         cell.tempCell.text = "\(String(describing: weatherThreeHours.temp))°C"
