@@ -16,7 +16,6 @@ class AlamofireVC: UIViewController {
     
     @IBAction func addCity(_ sender: Any) {
         let alertController = UIAlertController(title: "Add new city", message: nil, preferredStyle: .alert)
-        
         alertController.addTextField { (textField) in
             textField.placeholder = "City name"
         }
@@ -34,14 +33,12 @@ class AlamofireVC: UIViewController {
         }
         alertController.addAction(alertActionCancel)
         alertController.addAction(alertActionCreate)
-        
         present(alertController, animated: true, completion: nil)
     }
     
     var weather: [(AlamoWeath)] = []
     var citiesForWeather: [String] = []
-    
-    var all: Int = 0
+    var allAvgTemp: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +50,8 @@ class AlamofireVC: UIViewController {
 }
 
 extension AlamofireVC: AlamofireWeatherLoaderDelegate {
-    func threeLoaded(weathers: [(AlamoWeath)], avgTemp4AllCities: Int) {
+    func threeLoaded(weathers: [(AlamoWeath)]) {
         self.weather = weathers
-        self.all = avgTemp4AllCities
         tableView.reloadData()
     }
 }
@@ -71,10 +67,11 @@ extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlamoCell") as! AlamofireTVC
         let weatherThreeHours = weather[indexPath.row]
+        
         cell.dateCell.text = weatherThreeHours.date
         cell.cityCell.text = weatherThreeHours.city
         cell.tempCell.text = "\(String(describing: weatherThreeHours.temp))°C"
-        avgTemp4AllCities.title = String(all)
+        
         return cell
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -92,7 +89,6 @@ extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         let appDelegate =
             UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -103,6 +99,5 @@ extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
         let loader = AlamofireWeatherLoader()
         loader.delegate = self
         loader.alamoLoadThreeWeather()
-        
     }
 }

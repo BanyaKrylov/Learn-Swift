@@ -32,25 +32,7 @@ func addStartCity() {
                 print(error)
             }
         }
-        //    if userDefaults.bool(forKey: "firstRun") {
-        //        var startCities = ["Rostov", "Sochi", "Tomsk", "Omsk"]
-        //    for item in startCities {
-        //        print(item)
-        //        let city = NSManagedObject(entity: entity!, insertInto:managedContext)
-        //        city.setValue(item, forKey: "name")
-        //        cities.append(city)
-        //
-        //        do {
-        //            try managedContext.save()
-        //        } catch {
-        //            print(error)
-        //        }
-        //    }
-        //    for i in cities {
-        //        print(i.value(forKey: "name") as! String)
-        //    }
     }
-    
 }
 
 func addNewCity(nameTask: String) {

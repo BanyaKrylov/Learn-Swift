@@ -8,9 +8,9 @@
 
 import Foundation
 import Alamofire
-import CoreData
+
 protocol AlamofireWeatherLoaderDelegate {
-    func threeLoaded(weathers: [(AlamoWeath)], avgTemp4AllCities: Int)
+    func threeLoaded(weathers: [(AlamoWeath)])
 }
 
 struct AlamoWeath {
@@ -27,7 +27,6 @@ class AlamofireWeatherLoader {
     var datePeriod: String = ""
     var averageTemp: Int = 0
     var countItems: Int = 0
-    var avgTemp4AllCities = 0
     
     func alamoLoadThreeWeather() {
         for cityItem in cities {
@@ -49,7 +48,6 @@ class AlamofireWeatherLoader {
                                         if let temp = main["main"] as? NSDictionary {
                                             if let temperature = temp["temp"] as? Double {
                                                 self.averageTemp += Int(round(temperature - 273.15))
-                                                self.avgTemp4AllCities += Int(round(temperature - 273.15))
                                             }
                                         }
                                     }
@@ -68,9 +66,8 @@ class AlamofireWeatherLoader {
                         }
                         self.weathers.append(.init(city: self.cityName, temp: Int(self.averageTemp / self.countItems), date: self.datePeriod))
                         self.averageTemp = 0
-                        self.avgTemp4AllCities /= self.weathers.count
                         DispatchQueue.main.async {
-                            self.delegate?.threeLoaded(weathers: self.weathers, avgTemp4AllCities: self.avgTemp4AllCities)
+                            self.delegate?.threeLoaded(weathers: self.weathers)
                         }
                     }
                 } else {
@@ -80,4 +77,5 @@ class AlamofireWeatherLoader {
         }
     }
 }
+
 
