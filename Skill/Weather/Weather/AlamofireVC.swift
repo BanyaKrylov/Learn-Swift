@@ -45,6 +45,7 @@ class AlamofireVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addStartCity()
         let loader = AlamofireWeatherLoader()
         loader.delegate = self
         loader.alamoLoadThreeWeather()

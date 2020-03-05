@@ -11,23 +11,46 @@ import CoreData
 import UIKit
 
 var cities = [NSManagedObject]()
-var startCities = ["Rostov", "Sochi", "Tomsk", "Omsk"]
+
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let managedContext = appDelegate.persistentContainer.viewContext
 let entity =  NSEntityDescription.entity(forEntityName: "City", in: managedContext)
 
 func addStartCity() {
-    for item in startCities {
-        let city = NSManagedObject(entity: entity!, insertInto:managedContext)
-        city.setValue(item, forKey: "name")
-        cities.append(city)
-        
-        do {
-            try managedContext.save()
-        } catch {
-            print(error)
+    if userDefaults.bool(forKey: "firstRun") {
+        let startCities = ["Rostov", "Sochi", "Tomsk", "Omsk"]
+        for item in startCities {
+            print(item)
+            let city = NSManagedObject(entity: entity!, insertInto:managedContext)
+            city.setValue(item, forKey: "name")
+            cities.append(city)
+            
+            do {
+                try managedContext.save()
+                userDefaults.set(false, forKey: "firstRun")
+            } catch {
+                print(error)
+            }
         }
+        //    if userDefaults.bool(forKey: "firstRun") {
+        //        var startCities = ["Rostov", "Sochi", "Tomsk", "Omsk"]
+        //    for item in startCities {
+        //        print(item)
+        //        let city = NSManagedObject(entity: entity!, insertInto:managedContext)
+        //        city.setValue(item, forKey: "name")
+        //        cities.append(city)
+        //
+        //        do {
+        //            try managedContext.save()
+        //        } catch {
+        //            print(error)
+        //        }
+        //    }
+        //    for i in cities {
+        //        print(i.value(forKey: "name") as! String)
+        //    }
     }
+    
 }
 
 func addNewCity(nameTask: String) {
@@ -54,3 +77,4 @@ func removeCity(at index: Int) {
         print(saveError)
     }
 }
+

@@ -30,52 +30,52 @@ class AlamofireWeatherLoader {
     var avgTemp4AllCities = 0
     
     func alamoLoadThreeWeather() {
-        for cityItem in cities { AF.request("https://api.openweathermap.org/data/2.5/forecast?q=\(cityItem.value(forKey: "name") as! String)&appid=92b4b4d3adefbf2010168479c963dd64").responseJSON() { response in
-            if response.response?.statusCode == 200 {
-                if let objects = response.value {
-                    if let jsonDict = objects as? NSDictionary {
-                        if let cntJson = jsonDict["cnt"] as? Int {
-                            self.countItems = cntJson
-                        }
-                        if let placeJson = jsonDict["city"] as? NSDictionary {
-                            if let city = placeJson["name"] as? String {
-                                self.cityName = city
+        for cityItem in cities {
+            AF.request("https://api.openweathermap.org/data/2.5/forecast?q=\(cityItem.value(forKey: "name") as! String)&appid=92b4b4d3adefbf2010168479c963dd64").responseJSON() { response in
+                if response.response?.statusCode == 200 {
+                    if let objects = response.value {
+                        if let jsonDict = objects as? NSDictionary {
+                            if let cntJson = jsonDict["cnt"] as? Int {
+                                self.countItems = cntJson
                             }
-                        }
-                        if let listJson = jsonDict["list"] as? NSArray {
-                            for item in listJson {
-                                if let main = item as? NSDictionary {
-                                    if let temp = main["main"] as? NSDictionary {
-                                        if let temperature = temp["temp"] as? Double {
-                                            self.averageTemp += Int(round(temperature - 273.15))
-                                            self.avgTemp4AllCities += Int(round(temperature - 273.15))
+                            if let placeJson = jsonDict["city"] as? NSDictionary {
+                                if let city = placeJson["name"] as? String {
+                                    self.cityName = city
+                                }
+                            }
+                            if let listJson = jsonDict["list"] as? NSArray {
+                                for item in listJson {
+                                    if let main = item as? NSDictionary {
+                                        if let temp = main["main"] as? NSDictionary {
+                                            if let temperature = temp["temp"] as? Double {
+                                                self.averageTemp += Int(round(temperature - 273.15))
+                                                self.avgTemp4AllCities += Int(round(temperature - 273.15))
+                                            }
                                         }
                                     }
                                 }
-                            }
-                            if let mainFirst = listJson[0] as? NSDictionary {
-                                if let date = mainFirst["dt_txt"] as? String {
-                                    self.datePeriod = date
+                                if let mainFirst = listJson[0] as? NSDictionary {
+                                    if let date = mainFirst["dt_txt"] as? String {
+                                        self.datePeriod = date
+                                    }
                                 }
-                            }
-                            if let mainLast = listJson[self.countItems - 1] as? NSDictionary {
-                                if let date = mainLast["dt_txt"] as? String {
-                                    self.datePeriod += " - \(date)"
+                                if let mainLast = listJson[self.countItems - 1] as? NSDictionary {
+                                    if let date = mainLast["dt_txt"] as? String {
+                                        self.datePeriod += " - \(date)"
+                                    }
                                 }
                             }
                         }
+                        self.weathers.append(.init(city: self.cityName, temp: Int(self.averageTemp / self.countItems), date: self.datePeriod))
+                        self.averageTemp = 0
+                        self.avgTemp4AllCities /= self.weathers.count
+                        DispatchQueue.main.async {
+                            self.delegate?.threeLoaded(weathers: self.weathers, avgTemp4AllCities: self.avgTemp4AllCities)
+                        }
                     }
-                    self.weathers.append(.init(city: self.cityName, temp: Int(self.averageTemp / self.countItems), date: self.datePeriod))
-                    self.averageTemp = 0
-                    self.avgTemp4AllCities /= self.weathers.count
-                    print(self.weathers)
-                    DispatchQueue.main.async {
-                        self.delegate?.threeLoaded(weathers: self.weathers, avgTemp4AllCities: self.avgTemp4AllCities)
-                    }
+                } else {
+                    print("!= 200")
                 }
-            } else {
-                print("!= 200")
-            }
             }
         }
     }
