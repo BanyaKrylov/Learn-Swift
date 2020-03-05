@@ -40,7 +40,6 @@ func addNewCity(nameTask: String) {
     } catch {
         print(error)
     }
-    print(cities)
 }
 
 func removeCity(at index: Int) {

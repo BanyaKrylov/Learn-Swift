@@ -45,24 +45,9 @@ class AlamofireVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        addStartCity()
         let loader = AlamofireWeatherLoader()
         loader.delegate = self
         loader.alamoLoadThreeWeather()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let appDelegate =
-            UIApplication.shared.delegate as! AppDelegate
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"City")
-        let fetchedResults = try! managedContext.fetch(fetchRequest)
-        
-        let results = fetchedResults
-        cities = results as! [NSManagedObject]
-        
     }
 }
 
@@ -75,6 +60,10 @@ extension AlamofireVC: AlamofireWeatherLoaderDelegate {
 }
 
 extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return weather.count
     }
@@ -86,5 +75,33 @@ extension AlamofireVC: UITableViewDataSource, UITableViewDelegate {
         cell.tempCell.text = "\(String(describing: weatherThreeHours.temp))°C"
         avgTemp4AllCities.title = String(all)
         return cell
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            removeCity(at: indexPath.row)
+            weather.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let appDelegate =
+            UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"City")
+        let fetchedResults = try! managedContext.fetch(fetchRequest)
+        let results = fetchedResults
+        cities = results as! [NSManagedObject]
+        let loader = AlamofireWeatherLoader()
+        loader.delegate = self
+        loader.alamoLoadThreeWeather()
+        
     }
 }
